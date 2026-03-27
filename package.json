@@ -1,0 +1,26 @@
+{
+  "name": "api-tdd-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "vitest run",
+    "lint": "eslint src/ tests/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitest/coverage-v8": "^4.1.2",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0",
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.2"
+  }
+}
