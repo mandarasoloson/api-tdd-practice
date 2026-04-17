@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "test": "vitest run",
+    "test": "vitest run --reporter verbose",
     "lint": "eslint src/ tests/"
   },
   "keywords": [],
