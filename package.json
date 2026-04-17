@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
+    "test:coverage": "vitest run --coverage",
     "test": "vitest run --reporter verbose",
     "lint": "eslint src/ tests/"
   },
@@ -17,7 +18,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@vitest/coverage-v8": "^4.1.2",
+    "@vitest/coverage-v8": "^4.1.4",
     "eslint": "^10.1.0",
     "globals": "^17.4.0",
     "supertest": "^7.2.2",
