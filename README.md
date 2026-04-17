@@ -25,7 +25,6 @@ Ce projet est une API de moteur de tarification pour une plateforme de livraison
 
 Le projet impose un seuil de couverture de code de 80%.
 
-```bash
 # Installation
 npm install
 
