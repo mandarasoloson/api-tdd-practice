@@ -38,7 +38,6 @@ npm run test:coverage
 # Vérifier le code
 npm run lint
 
----
 
 ### 4. Documentation et Architecture
 ```markdown
