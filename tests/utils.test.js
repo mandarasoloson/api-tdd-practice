@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { capitalize, calculateAverage, slugify, clamp } from '../src/utils.js';
+import { capitalize, calculateAverage, slugify, clamp, sortStudents } from '../src/utils.js';
 
 describe('Utils Functions()', () => {
     describe('capitalize()', () =>{
@@ -96,5 +96,61 @@ describe('Utils Functions()', () => {
         expect(clamp(0, 0, 0)).toBe(0);
         });
     });
+
+    describe('sortStudents()', () => {
+    const baseStudents = [
+      { name: "Charlie", grade: 18, age: 19 },
+      { name: "Alice", grade: 15, age: 20 },
+      { name: "Bob", grade: 12, age: 22 }
+    ];
+
+    it('1. should sort students by grade ascending', () => {
+      const result = sortStudents(baseStudents, 'grade', 'asc');
+      expect(result[0].name).toBe("Bob");     // 12
+      expect(result[1].name).toBe("Alice");   // 15
+      expect(result[2].name).toBe("Charlie"); // 18
+    });
+
+    it('2. should sort students by grade descending', () => {
+      const result = sortStudents(baseStudents, 'grade', 'desc');
+      expect(result[0].name).toBe("Charlie"); // 18
+      expect(result[2].name).toBe("Bob");     // 12
+    });
+
+    it('3. should sort students by name ascending', () => {
+      const result = sortStudents(baseStudents, 'name', 'asc');
+      expect(result[0].name).toBe("Alice");
+      expect(result[1].name).toBe("Bob");
+      expect(result[2].name).toBe("Charlie");
+    });
+
+    it('4. should sort students by age ascending', () => {
+      const result = sortStudents(baseStudents, 'age', 'asc');
+      expect(result[0].age).toBe(19);
+      expect(result[2].age).toBe(22);
+    });
+
+    it('5. should return empty array for null input', () => {
+      expect(sortStudents(null, 'name', 'asc')).toEqual([]);
+    });
+
+    it('6. should return empty array for empty input', () => {
+      expect(sortStudents([], 'name', 'asc')).toEqual([]);
+    });
+
+    it('7. should not modify the original array', () => {
+      const originalCopy = [...baseStudents];
+      const result = sortStudents(baseStudents, 'grade', 'desc');
+      
+      expect(result).not.toBe(baseStudents);
+      // On vérifie que le tableau de base n'a pas bougé
+      expect(baseStudents).toEqual(originalCopy);
+    });
+
+    it('8. should default to ascending order', () => {
+      const result = sortStudents(baseStudents, 'grade');
+      expect(result[0].name).toBe("Bob"); // Le plus bas doit être premier (asc)
+    });
+  });
 
 });
